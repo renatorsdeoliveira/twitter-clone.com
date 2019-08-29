@@ -45,7 +45,7 @@
 	    	<div class="col-md-4">
 	    		<h3>Inscreva-se já.</h3>
 	    		<br />
-				<form method="post" action="escreva_usuario.php" id="formCadastrarse">
+				<form method="post" action="registros.php" id="formCadastrarse">
 					<div class="form-group">
 						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="requiored">
 					</div>

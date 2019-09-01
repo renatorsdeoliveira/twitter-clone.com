@@ -12,10 +12,14 @@
     $link = $objeto->conectando_banco();
 
     $sql = "insert into usuarios(usuario, email, senha) values('$usuario', '$email', '$senha')";
-    
 
-    mysqli_query($link, $sql);
+    if(mysqli_query($link, $sql)){
+        echo "Usuario registrado com sucesso";
+    }else{
+        echo "Erro ao registrar o usuario";
+    }
 
-    
+
+    // header("Location: http://localhost/twitter-clone.com/sucesso.php"); 
 
 ?>

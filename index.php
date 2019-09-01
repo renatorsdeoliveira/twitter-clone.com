@@ -1,3 +1,10 @@
+<?php 
+
+
+	$erro = isset($_GET['erro']) ? $_GET['erro'] : '';
+
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -28,19 +35,21 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
-	          <img src="imagens/icone_twitter.png" />
+			 	<a href="http://localhost/twitter-clone.com/">
+			  		<img src="imagens/icone_twitter.png" />
+			 	</a> 
 	        </div>
 	        
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
 	            <li><a href="inscrevase.php">Inscrever-se</a></li>
-	            <li class="">
-	            	<a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
-					<ul class="dropdown-menu" aria-labelledby="entrar">
+	            <li class="<?= $erro == 1 ? 'show' : '' ;?>">
+	            	<a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="<?= $erro == 1 ? 'true' : 'false' ; ?>">Entrar</a>
+					<ul class="dropdown-menu <?= $erro == 1 ? 'show' : ''; ?>" aria-labelledby="entrar">
 						<div class="col-md-12">
 				    		<p>Você possui uma conta?</h3>
 				    		<br />
-							<form method="post" action="" id="formLogin">
+							<form method="post" action="validar.php" id="formLogin">
 								<div class="form-group">
 									<input type="text" class="form-control" id="campo_usuario" name="usuario" placeholder="Usuário" />
 								</div>
@@ -52,6 +61,10 @@
 								<button type="buttom" class="btn btn-primary" id="btn_login">Entrar</button>
 
 								<br /><br />
+
+								<?php if($erro == 1){
+									echo '<font color="#ff0000" >Usuario ou senha não encontrados</font>';
+									};?>
 								
 							</form>
 						</form>

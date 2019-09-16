@@ -1,6 +1,6 @@
 <?php
 
-    require_once('banco.class.php');
+    require_once('banco/banco.class.php');
 
 
     $usuario = $_POST['usuario'];

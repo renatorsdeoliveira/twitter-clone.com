@@ -1,7 +1,7 @@
 
 <?php
 
-    require_once('banco.class.php');
+    require_once('banco/banco.class.php');
 
     $usaruio = $_POST['usuario'];
     $senha = $_POST['senha'];
@@ -19,7 +19,7 @@
     $dados_usuarios = mysqli_fetch_array($resultado_id);
 
     if($dados_usuarios['usuario']){
-        echo 'usuario encontrado '.$dados_usuarios['usuario'];
+        header('Location: home.php');
     }else{
       header('Location: index.php?erro=1');
     }

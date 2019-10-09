@@ -12,6 +12,7 @@
 		<title>Twitter clone</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
 	</head>
 
 	<body>
@@ -74,6 +75,7 @@
 	      <div class="clearfix"></div>
 		</div>
 	
+		<script src="javascript/script.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
 	
 	</body>

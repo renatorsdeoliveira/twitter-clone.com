@@ -43,7 +43,7 @@
 
 	    	<div class="col-md-4"></div>
 	    	<div class="col-md-4">
-	    		Usuario cadastrado com sucesso!!!
+	    		Seja bem vindo sucesso!!!
 			</div>
 			<div class="col-md-4"></div>
 

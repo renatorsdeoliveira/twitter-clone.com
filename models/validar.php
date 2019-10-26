@@ -6,15 +6,17 @@
     require_once('banco.class.php');
 
     $usuario = $_POST['usuario'];
-    $senha = $_POST['senha'];
+    md5($senha = $_POST['senha']);
 
-    $sql = "SELECT * FROM usuarios WHERE usuario ='$usuario' AND  senha ='$senha'";
+    //consulta no banco
+    $sql = "SELECT usuario, email FROM usuarios WHERE usuario ='$usuario' AND  senha ='$senha'";
 
-    $objeto = new db();
-    $link = $objeto->conectando_banco();
+    //instanciado a nova classo banco
+    $banco = new db();
+    //Feita a conexão do banco
+    $link = $banco->conectando_banco();
 
-
-    // consulta no banco
+    //Trazendo o resultado da conexão do banco e da query
     $resultado_id = mysqli_query($link, $sql);
     
     // traformando em array

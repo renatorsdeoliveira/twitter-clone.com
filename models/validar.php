@@ -1,9 +1,9 @@
 
 <?php
 
-    require_once('banco.class.php');
+    session_start();
 
-    
+    require_once('banco.class.php');
 
     $usuario = $_POST['usuario'];
     $senha = $_POST['senha'];
@@ -21,6 +21,8 @@
     $dados_usuarios = mysqli_fetch_array($resultado_id);
 
     if($dados_usuarios['usuario']){
+        $_SESSION['usuario'] = $dados_usuarios['usuario'];
+        $_SESSION['email'] = $dados_usuarios['email'];
         header('Location: http://localhost/twitter-clone.com/home.php');
     }else{
       header('Location: http://localhost/twitter-clone.com/index.php?erro=1');

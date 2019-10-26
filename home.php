@@ -1,3 +1,11 @@
+<?php session_start();
+	if(!isset($_SESSION['usuario'])){
+		header('Location: http://localhost/twitter-clone.com/index.php?erro=1');
+	}
+?>
+
+
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -30,7 +38,7 @@
 	        
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-	            <li><a href="#">Sair</a></li>
+	            <li><a href="http://localhost/twitter-clone.com/sair.php">Sair</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
 	      </div>
@@ -43,7 +51,10 @@
 
 	    	<div class="col-md-4"></div>
 	    	<div class="col-md-4">
-	    		Seja bem vindo sucesso!!!
+
+
+				Seja bem vindo <?= $_SESSION['usuario']?>!!!
+
 			</div>
 			<div class="col-md-4"></div>
 

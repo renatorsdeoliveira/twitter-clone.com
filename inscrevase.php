@@ -1,3 +1,12 @@
+<?php 
+
+	// tratando o erro para que não seja mostrando quando não tiver na url
+	$erro_usuario = isset($_GET['usuario_erro']) ? $_GET['usuario_erro'] : 0;
+	$erro_email = isset($_GET['email_erro']) ? $_GET['email_erro'] : 0;
+
+
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -11,6 +20,11 @@
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	
+		<style>
+			.erro{
+				border: 1px solid #ff0000;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -47,11 +61,21 @@
 	    		<br />
 				<form method="post" action="models/registros.php" id="formCadastrarse">
 					<div class="form-group">
-						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="requiored">
+						<input type="text"  class="form-control <?= $erro_usuario == 1 ? 'erro' : 0; ?>" id="usuario" name="usuario" placeholder="Usuário" required="requiored" >
+						<?php
+							if($erro_usuario == 1){
+								echo '<font color="#ff0000" >Usuário já existe</font>';
+							}
+						?>
 					</div>
 
 					<div class="form-group">
-						<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="requiored">
+						<input type="email" class="form-control <?= $erro_email == 1 ? 'erro' : 0; ?> " id="email" name="email" placeholder="Email" required="requiored">
+						<?php
+							if($erro_email == 1){
+								echo '<font color="#ff0000" >E-mail já existe</font>';
+							}
+						?>
 					</div>
 					
 					<div class="form-group">

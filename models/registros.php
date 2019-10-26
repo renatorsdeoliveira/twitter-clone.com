@@ -7,6 +7,9 @@
     $email = $_POST['email'];
     $senha = md5($_POST['senha']);
 
+    $usuario_existe = false;
+    $email_existe = false;
+
 
     $objeto = new db();
     $link = $objeto->conectando_banco();
@@ -15,14 +18,13 @@
     // verificar usuario 
     $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
     if($resultado_id = mysqli_query($link, $sql)){
+
         $dados_usuario = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
 
         if(isset($dados_usuario['usuario'])){
-            echo ' Usuário já cadastrado';
+            $usuario_existe = true;
         }
-        else{
-            echo ' Usuário não casdastrado, pode cadastrar';
-        }
+        
     }else{
         echo 'erro ao tentar localizar o registro do usuário';
     }
@@ -30,21 +32,36 @@
     // verificar email 
     $sql = "SELECT * FROM usuarios WHERE email = '$email'";
     if($resultado_id = mysqli_query($link,$sql)){
+
         $dados_usuario = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
 
         if($dados_usuario['email']){
-            echo ' E-mail já cadastrado';
-        }else{
-            echo ' E-mail não casdastrado, pode cadastrar';
-
+            $email_existe = true;;
         }
     }else{
         echo 'erro ao tentar localizar o registro do usuário';
     }
+
+
+    if($usuario_existe || $email_existe){
+
+
+        $retorno_get_existe = ''; 
+        
+        if($usuario_existe){
+            $retorno_get_existe .= 'usuario_erro=1&'; 
+        }
+        if($email_existe){
+            $retorno_get_existe .= 'email_erro=1&'; 
+        }
+             
+        header('Location: http://localhost/twitter-clone.com/inscrevase.php?'.$retorno_get_existe);
+        
+        die();// Finaliza o leitura, funciona como o exit()
+    }
     // verificar email 
     //////////////////////////////////////////////////////////////////////////////
 
-    die();
 
     $sql = "insert into usuarios(usuario, email, senha) values('$usuario', '$email', '$senha')";
 

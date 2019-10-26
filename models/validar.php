@@ -6,7 +6,7 @@
     require_once('banco.class.php');
 
     $usuario = $_POST['usuario'];
-    md5($senha = $_POST['senha']);
+    $senha = md5($_POST['senha']);
 
     //consulta no banco
     $sql = "SELECT usuario, email FROM usuarios WHERE usuario ='$usuario' AND  senha ='$senha'";

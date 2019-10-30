@@ -22,4 +22,21 @@ $(document).ready(function(){
         //final validação do formulario de login
 
     });
+
+
+    
+    // ajax dos tweets
+    $('#btn_tweet').click(function(){
+    	$.ajax({
+            url: 'inclui_tweet.php',
+            method: 'post',
+            data: $('#form_tweet').serialize(),
+    		success: function(data){
+    			alert(data);
+    		}
+    	});
+    });
+
+
+
 });

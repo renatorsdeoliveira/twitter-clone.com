@@ -63,12 +63,12 @@
 			<div class="col-md-6">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<div class="input-group">
-							<input type="text" id="text_tweet" class="form-control" placeholder="O que está acontecendo agora?" maxlength="140" />
-							<span class="input-group-btn">
-								<button class="btn btn-default" id="btn_tweet" type="button">Tweet</button>
-							</span>
-						</div>
+						<form action="" method="post" id="form_tweet" class="input-group">
+								<input type="text" id="text_tweet" name="text_tweet" class="form-control" placeholder="O que está acontecendo agora?" maxlength="140" />
+								<span class="input-group-btn">
+									<button class="btn btn-default" id="btn_tweet" type="button">Tweet</button>
+								</span>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -85,6 +85,7 @@
 	    </div>
 	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
+		<script src="javascript/script.js?Zfsssaf"></script>
 	
 	</body>
 </html>

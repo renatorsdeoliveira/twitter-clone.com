@@ -25,7 +25,7 @@ $(document).ready(function(){
 
 
     
-    // ajax dos tweets
+    // ajax dos tweets incluindo
     $('#btn_tweet').click(function(){
     	$.ajax({
             url: 'inclui_tweet.php',
@@ -37,7 +37,17 @@ $(document).ready(function(){
     		}
     	});
     });
+    // ajax dos tweets motrando
+    function atualizarTweet(){
+        $.ajax({
+            url: 'get_tweet.php',
+            success: function(data){
+                $('#tweets').html(data);
+            }
 
+        });
+    }
 
+    atualizarTweet()
 
 });

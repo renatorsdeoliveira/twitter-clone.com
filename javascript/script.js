@@ -23,7 +23,7 @@ $(document).ready(function(){
 
     });
 
-    // ajax dos tweets incluindo
+    // ajax dos tweets incluindo home
     $('#btn_tweet').click(function(){
         if($('#texto_tweet').val().length > 0){
 
@@ -40,7 +40,7 @@ $(document).ready(function(){
         
     });
     if(urlPagina != ''){
-        // ajax dos tweets motrando
+        // ajax dos tweets motrando home
         function atualizarTweet(){
             $.ajax({
                 url: 'get_tweet.php',
@@ -54,6 +54,7 @@ $(document).ready(function(){
         atualizarTweet()
     }
 
+    // ajax procurando pessoas 
     $('#btn_procurar_pessoas').click(function(){
         if($('#nome_pessoa').val().length > 0){
             $.ajax({
@@ -62,6 +63,20 @@ $(document).ready(function(){
                 data: $('#form_procurar_pessoas').serialize(),
                 success: function(data){
                     $('#pessoas').html(data);
+
+                    $('.btn_seguir').click(function(){
+                        var id_usuario = $(this).data('id_usuario');
+
+                        $.ajax({
+                            url: 'seguir.php',
+                            method: 'post',
+                            data: {seguir_id_usuario: id_usuario},
+                            success: function(data){
+                                alert('Registro efetuado!');
+                            }
+
+                        });
+                    });
                     
                 
                 }

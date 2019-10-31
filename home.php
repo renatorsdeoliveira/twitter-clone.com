@@ -18,7 +18,9 @@
 
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	
+		<script>
+			let urlPagina = window.location.pathname; // variavel para pegar o url da página
+		</script>
 	</head>
 
 	<body>
@@ -87,7 +89,6 @@
 	    </div>
 	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
-		<script src="javascript/home.js"></script>
 		<script src="javascript/script.js?Zfsssaf"></script>
 	
 	</body>

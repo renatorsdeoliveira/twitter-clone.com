@@ -25,17 +25,21 @@ $(document).ready(function(){
 
     // ajax dos tweets incluindo
     $('#btn_tweet').click(function(){
-    	$.ajax({
-            url: 'inclui_tweet.php',
-            method: 'post',
-            data: $('#form_tweet').serialize(),
-    		success: function(data){
-                $('#texto_tweet').val('');
-                atualizarTweet()
-    		}
-    	});
+        if($('#texto_tweet').val().length > 0){
+
+            $.ajax({
+                url: 'inclui_tweet.php',
+                method: 'POST',
+                data: $('#form_tweet').serialize(),
+                success: function(data){
+                    $('#texto_tweet').val('');
+                    atualizarTweet()
+                }
+            });
+    	}
+        
     });
-    if(urlPagina == '/twitter-clone.com/home.php'){
+    if(urlPagina != ''){
         // ajax dos tweets motrando
         function atualizarTweet(){
             $.ajax({
@@ -49,5 +53,21 @@ $(document).ready(function(){
 
         atualizarTweet()
     }
+
+    $('#btn_procurar_pessoas').click(function(){
+        if($('#nome_pessoa').val().length > 0){
+            $.ajax({
+                url: 'get_pessoas.php',
+                method: 'POST',
+                data: $('#form_procurar_pessoas').serialize(),
+                success: function(data){
+                    $('#pessoas').html(data);
+                    
+                
+                }
+            });
+        }
+    });
+   
 
 });

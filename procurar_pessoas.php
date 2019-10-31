@@ -18,7 +18,9 @@
 
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	
+		<script>
+			let urlPagina = ''; // variavel para pegar o url da página
+		</script>
 	</head>
 
 	<body>
@@ -67,13 +69,13 @@
 						<form action="" method="post" id="form_procurar_pessoas" class="input-group">
 								<input type="text" id="nome_pessoa" name="nome_pessoa" class="form-control" placeholder="Quem você está procurando?" maxlength="140" />
 								<span class="input-group-btn">
-									<button class="btn btn-default" id="btn_procurar_Pessoas" type="button">Procurar</button>
+									<button class="btn btn-default" id="btn_procurar_pessoas" type="button">Procurar</button>
 								</span>
 						</form>
 					</div>
 				</div>
 
-				<div id='tweets' class="list-group"></div>
+				<div id='pessoas' class="list-group"></div>
 			</div>
 			<div class="col-md-3">
 				<div class="panel panel-default">

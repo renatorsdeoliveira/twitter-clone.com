@@ -13,16 +13,24 @@
     $objeto = new db();
     $link = $objeto->conectando_banco();
 
-    $sql = "SELECT * FROM tweet WHERE id_usuario = $id_usuario ORDER BY data_inclusao DESC";
+    $sql  = "SELECT t.data_inclusao, t.tweet, u.usuario FROM tweet as t ";
+    $sql .= "JOIN usuarios as u on (t.id_usuario = u.id)";
+    $sql .= " WHERE id_usuario = $id_usuario ORDER BY data_inclusao DESC";
 
     $resultado_tweets = mysqli_query($link, $sql);
 
     if($resultado_tweets){
         while($registros = mysqli_fetch_array($resultado_tweets, MYSQLI_ASSOC)){
-            var_dump($registros);
-            echo '<br /><br />';
+            echo '<a href="#" class="list-group-item">';
+            echo '<h4 class="list-group-item-heading">'.$registros['usuario'].'<small> - '.$registros['data_inclusao'].'</small></h4>';
+            echo '<p class="list-group-item-text">'.$registros['tweet'].'</p>';
+            echo '</a>';
+  
 
         }
+    }
+    else{
+        echo 'Erro como na tentativa de acessar o banco de dados';
     }
 
 ?>

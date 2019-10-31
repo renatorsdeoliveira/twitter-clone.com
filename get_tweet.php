@@ -13,7 +13,7 @@
     $objeto = new db();
     $link = $objeto->conectando_banco();
 
-    $sql  = "SELECT t.data_inclusao, t.tweet, u.usuario FROM tweet as t ";
+    $sql  = "SELECT DATE_FORMAT(t.data_inclusao, '%d %b %Y %T') as data_inclusao_formatada, t.tweet, u.usuario FROM tweet as t ";
     $sql .= "JOIN usuarios as u on (t.id_usuario = u.id)";
     $sql .= " WHERE id_usuario = $id_usuario ORDER BY data_inclusao DESC";
 
@@ -22,7 +22,7 @@
     if($resultado_tweets){
         while($registros = mysqli_fetch_array($resultado_tweets, MYSQLI_ASSOC)){
             echo '<a href="#" class="list-group-item">';
-            echo '<h4 class="list-group-item-heading">'.$registros['usuario'].'<small> - '.$registros['data_inclusao'].'</small></h4>';
+            echo '<h4 class="list-group-item-heading">'.$registros['usuario'].'<small> - '.$registros['data_inclusao_formatada'].'</small></h4>';
             echo '<p class="list-group-item-text">'.$registros['tweet'].'</p>';
             echo '</a>';
   

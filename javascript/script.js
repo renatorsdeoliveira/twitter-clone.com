@@ -35,7 +35,7 @@ $(document).ready(function(){
     		}
     	});
     });
-    if(linkPagina == '/twitter-clone.com/home.php'){
+    if(urlPagina == '/twitter-clone.com/home.php'){
         // ajax dos tweets motrando
         function atualizarTweet(){
             $.ajax({

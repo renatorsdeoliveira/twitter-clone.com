@@ -69,7 +69,7 @@ $(document).ready(function(){
 
                         $.ajax({
                             url: 'seguir.php',
-                            method: 'post',
+                            method: 'POST',
                             data: {seguir_id_usuario: id_usuario},
                             success: function(data){
                                 alert('Registro efetuado!');
@@ -77,7 +77,20 @@ $(document).ready(function(){
 
                         });
                     });
-                    
+
+                    // $('.btn_deixar_seguir').click(function(){
+                    //     var id_usuario = $(this).data('id_usuario');
+
+                    //     $.ajax({
+                    //         url: 'deixar_seguir.php',
+                    //         method: 'post',
+                    //         data: {deixar_seguir_id_usuario: id_usuario},
+                    //         success: function(data){
+                    //             alert('Registro removido com sucesso!');
+                    //         }
+
+                    //     });
+                    // });
                 
                 }
             });

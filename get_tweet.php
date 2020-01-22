@@ -6,11 +6,11 @@
         header('Location: http://localhost/twitter-clone.com/index.php?erro=1');
     }
 
-    require_once('models/banco.class.php');
+    require_once('models/Banco.php');
 
     $id_usuario = $_SESSION['id_usuario'];
 
-    $objeto = new db();
+    $objeto = new Banco();
     $link = $objeto->conectando_banco();
 
     $sql  = "SELECT DATE_FORMAT(t.data_inclusao, '%d %b %Y %T') as data_inclusao_formatada, t.tweet, u.usuario FROM tweet as t ";

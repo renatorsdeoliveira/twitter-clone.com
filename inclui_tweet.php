@@ -6,7 +6,7 @@
 		header('Location: http://localhost/twitter-clone.com/index.php?erro=1');
 	}
 
-    require_once('models/banco.class.php');
+    require_once('models/Banco.php');
 
     $tweet = $_POST['texto_tweet'];
     $id_usuario = $_SESSION['id_usuario'];
@@ -14,10 +14,10 @@
 
 
     if($tweet != '' && $id_usuario != ''){
-        $objeto = new db();
+        $objeto = new Banco();
         $link = $objeto->conectando_banco();
     
-        $sql = "INSERT INTO tweet(id_usuario, nome_usuario, tweet) values('$id_usuario', '$nome_usuario', '$tweet') ";
+        $sql = "INSERT INTO tweet(id_usuario, tweet) values('$id_usuario', '$tweet') ";
     
         mysqli_query($link, $sql);
     

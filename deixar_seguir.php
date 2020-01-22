@@ -9,16 +9,16 @@
     require_once('models/Banco.php');
 
     $id_usuario = $_SESSION['id_usuario'];
-    $seguir_id_usuario = $_POST['seguir_id_usuario'];
+    $deixar_seguir_id_usuario = $_POST['deixar_seguir_id_usuario'];
 
 
-    if($id_usuario != '' && $seguir_id_usuario != ''){
+    if($id_usuario != '' && $deixar_seguir_id_usuario != ''){
         $objeto = new Banco();
         $link = $objeto->conectando_banco();
     
-        $sql = "INSERT INTO usuarios_seguidores (id_usuario, seguindo_id_usuario) VALUES ($id_usuario, $seguir_id_usuario)";
+        $sql = "DELETE FROM usuarios_seguidores WHERE id_usuario = $id_usuario AND seguindo_id_usuario = $deixar_seguir_id_usuario";
 
-        mysqli_query($link, $sql);
+       mysqli_query($link, $sql);
     
     }
 

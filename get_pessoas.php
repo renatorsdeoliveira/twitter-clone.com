@@ -6,12 +6,12 @@
         header('Location: http://localhost/twitter-clone.com/index.php?erro=1');
     }
 
-    require_once('models/banco.class.php');
+    require_once('models/Banco.php');
 
     $nome_pessoa = $_POST['nome_pessoa'];
     $id_usuario = $_SESSION['id_usuario'];
 
-    $objeto = new db();
+    $objeto = new Banco();
     $link = $objeto->conectando_banco();
 
     $sql = "SELECT * FROM usuarios WHERE usuario like'%$nome_pessoa%' AND id <> $id_usuario";
@@ -24,8 +24,8 @@
             echo '<a href="#" class="list-group-item">';
                 echo '<strong>'.$registros['usuario'].'</strong> <small> - '.$registros['email'].'</small>';
                 echo '<p class="list-group-item-text pull-right">';
-                echo '<button type="button" class="btn btn-default btn_seguir" data-id_usuario="'.$registros['id'].'"> Seguir </button>';
-                // echo '<button type="button" class="btn btn-primary btn_deixar_seguir data-id_usuario="'.$registros['id'].'""> Deixar de seguir </button>';
+                echo '<button type="button" id="btn_seguir_'.$registros['id'].'" class="btn btn-default btn_seguir" data-id_usuario="'.$registros['id'].'"> Seguir </button>';
+                echo '<button type="button" id="btn_deixar_seguir_'.$registros['id'].'" style="display: none; margin-left: 8px;" class="btn btn-primary btn_deixar_seguir" data-id_usuario="'.$registros['id'].'""> Deixar de seguir </button>';
                 echo '</p>';
                 echo '<div class="clearfix"></div>';
             echo '</a>';

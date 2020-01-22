@@ -2,13 +2,13 @@
 <?php
 
 
-require_once('banco.class.php');
+require_once('Banco.php');
 
 //consulta no banco
 $sql = "SELECT * FROM usuarios";
 
 //instanciado a nova classo banco
-$objeto = new db();
+$objeto = new Banco();
 
 //Feita a conexão do banco
 $link = $objeto->conectando_banco();

@@ -1,12 +1,12 @@
 <?php 
 
-    class db {
+    class Banco {
 
         //Dados do banco
         private $host = "localhost";
         private $usuario = "root";
         private $senha = "";
-        private $database = "twiter_clone";
+        private $database = "twitter_clone";
 
         public function conectando_banco(){
 

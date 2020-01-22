@@ -3,7 +3,7 @@
 
     session_start();
 
-    require_once('banco.class.php');
+    require_once('Banco.php');
 
     $usuario = $_POST['usuario'];
     $senha = md5($_POST['senha']);
@@ -12,7 +12,7 @@
     $sql = "SELECT id, usuario, email FROM usuarios WHERE usuario ='$usuario' AND  senha ='$senha'";
 
     //instanciado a nova classo banco
-    $banco = new db();
+    $banco = new Banco();
     //Feita a conexão do banco
     $link = $banco->conectando_banco();
 

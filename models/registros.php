@@ -1,6 +1,6 @@
 <?php
 
-    require_once('banco.class.php');
+    require_once('Banco.php');
 
 
     $usuario = $_POST['usuario'];
@@ -11,7 +11,7 @@
     $email_existe = false;
 
 
-    $objeto = new db();
+    $objeto = new Banco();
     $link = $objeto->conectando_banco();
 
     //////////////////////////////////////////////////////////////////////////////
